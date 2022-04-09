@@ -21,6 +21,9 @@ import { map, mergeMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { HelpersService } from '../services/helpers.service';
 import { SocialAuthService } from 'angularx-social-login';
+import { Store } from '@ngrx/store';
+import { AppState } from './types';
+import { fetchPhotosRequest } from './photos.actions';
 
 @Injectable()
 export class UsersEffects {
@@ -28,6 +31,7 @@ export class UsersEffects {
   constructor(
     private actions: Actions,
     private router: Router,
+    private store: Store<AppState>,
     private authService: SocialAuthService,
     private usersService: UsersService,
     private helpersService: HelpersService,
@@ -89,6 +93,7 @@ export class UsersEffects {
       tap(() => {
         void this.router.navigate(['/']);
         void this.authService.signOut();
+        this.store.dispatch(fetchPhotosRequest({}));
         this.helpersService.openSnackBar('Logout successful');
       }),
     )),
