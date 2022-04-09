@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Photo } from '../../../models/photo.model';
+import { Photo, PhotoError } from '../../../models/photo.model';
 import { environment } from '../../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoModalComponent } from '../../../ui/photo-modal/photo-modal.component';
@@ -20,7 +20,7 @@ export class PhotoItemComponent implements OnInit, OnDestroy {
   apiUrl = environment.apiUrl;
 
   removeLoading: Observable<null | string>;
-  removeError: Observable<null | string>;
+  removeError: Observable<null | PhotoError>;
 
   isRemoveLoading = false;
 

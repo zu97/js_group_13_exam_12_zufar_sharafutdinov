@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/types';
-import { Photo } from '../../models/photo.model';
+import { Photo, PhotoError } from '../../models/photo.model';
 import { fetchPhotosRequest } from '../../store/photos.actions';
 import { User } from '../../models/user.model';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
   user: Observable<null | User>;
   photos: Observable<Photo[]>;
   fetchLoading: Observable<boolean>;
-  fetchError: Observable<null | string>;
+  fetchError: Observable<null | PhotoError>;
 
   isOwnerPage = false;
 

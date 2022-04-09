@@ -12,8 +12,8 @@
     >Add new photo</a>
   </div>
 
-  <div class="error" *ngIf="fetchError | async">
-    {{ fetchError | async }}
+  <div *ngIf="fetchError | async" class="error">
+    {{ (fetchError | async)?.error }}
   </div>
 
   <div fxLayout="row wrap" *ngIf="(photos | async)?.length; else emptyData">

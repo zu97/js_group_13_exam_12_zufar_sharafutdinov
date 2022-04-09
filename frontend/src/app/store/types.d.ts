@@ -1,5 +1,5 @@
 import { LoginError, RegisterError, User } from '../models/user.model';
-import { AddError, Photo } from '../models/photo.model';
+import { AddError, Photo, PhotoError } from '../models/photo.model';
 
 export type UsersState = {
   user: null | User,
@@ -14,11 +14,11 @@ export type UsersState = {
 export type PhotosState = {
   photos: Photo[],
   fetchLoading: boolean,
-  fetchError: null | string,
+  fetchError: null | PhotoError,
   addLoading: boolean,
   addError: null | AddError,
   removeLoading: null | string,
-  removeError: null | string
+  removeError: null | PhotoError
 };
 
 export type AppState = {

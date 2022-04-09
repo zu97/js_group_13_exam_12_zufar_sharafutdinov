@@ -153,7 +153,7 @@ router.post('/googleLogin', async (req, res, next) => {
             return res.status(401).send({error: 'Wrong user id'});
         }
 
-        let user = await User.findOne({googleId: req.body.id});
+        let user = await User.findOne({$or: [{googleId: req.body.id}, {email: response.data.email}] });
         if (!user) {
             const userData = {
                 email: req.body.email,

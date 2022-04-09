@@ -24,3 +24,7 @@ export interface AddError {
     image?: undefined | FieldError;
   }
 }
+
+export interface PhotoError {
+  error: string;
+}
