@@ -8,6 +8,7 @@ import { FlexModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -39,6 +40,7 @@ import { ValidateIdenticalDirective } from './directives/validate-identical.dire
     MatProgressSpinnerModule,
     FormsModule,
     MatButtonModule,
+    MatSnackBarModule,
     AppRoutingModule,
     AppStoreModule
   ],
