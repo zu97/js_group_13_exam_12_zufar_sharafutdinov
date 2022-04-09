@@ -25,4 +25,8 @@ export class UsersService {
     return this.http.post<User>(env.apiUrl + '/users/sessions', userData);
   }
 
+  logoutUser() {
+    return this.http.delete(env.apiUrl + '/users/sessions');
+  }
+
 }

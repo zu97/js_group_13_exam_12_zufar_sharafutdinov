@@ -5,6 +5,8 @@ import {
   loginUserFailure,
   loginUserRequest,
   loginUserSuccess,
+  logoutUser,
+  logoutUserRequest,
   registerUserFailure,
   registerUserRequest,
   registerUserSuccess
@@ -45,6 +47,17 @@ export class UsersEffects {
         void this.router.navigate(['/']);
       }),
       this.helpersService.catchServerError(loginUserFailure),
+    )),
+  ));
+
+  logoutUser = createEffect(() => this.actions.pipe(
+    ofType(logoutUserRequest),
+    mergeMap(() => this.usersService.logoutUser().pipe(
+      map(() => logoutUser()),
+      tap(() => {
+        void this.router.navigate(['/']);
+        this.helpersService.openSnackBar('Logout successful');
+      }),
     )),
   ));
 
