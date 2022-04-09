@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -22,6 +23,7 @@ import { LoaderComponent } from './ui/loader/loader.component';
 import { FileInputComponent } from './ui/file-input/file-input.component';
 import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
 import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { RegisterComponent } from './pages/register/register.component';
     LoaderComponent,
     FileInputComponent,
     ValidateIdenticalDirective,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { RegisterComponent } from './pages/register/register.component';
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
     AppRoutingModule,
     AppStoreModule
   ],

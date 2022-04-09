@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { UsersService } from '../services/users.service';
-import { registerUserFailure, registerUserRequest, registerUserSuccess } from './users.actions';
+import {
+  loginUserFailure,
+  loginUserRequest,
+  loginUserSuccess,
+  registerUserFailure,
+  registerUserRequest,
+  registerUserSuccess
+} from './users.actions';
 import { map, mergeMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { HelpersService } from '../services/helpers.service';
@@ -26,6 +33,18 @@ export class UsersEffects {
         void this.router.navigate(['/']);
       }),
       this.helpersService.catchServerError(registerUserFailure)
+    )),
+  ));
+
+  loginUser = createEffect(() => this.actions.pipe(
+    ofType(loginUserRequest),
+    mergeMap(({userData}) => this.usersService.loginUser(userData).pipe(
+      map((user) => loginUserSuccess({user})),
+      tap(() => {
+        this.helpersService.openSnackBar('Login successful');
+        void this.router.navigate(['/']);
+      }),
+      this.helpersService.catchServerError(loginUserFailure),
     )),
   ));
 

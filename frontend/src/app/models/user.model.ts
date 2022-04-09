@@ -16,6 +16,11 @@ export interface RegisterUserData {
   displayName: string;
 }
 
+export interface LoginUserData {
+  email: string;
+  password: string;
+}
+
 export interface FieldError {
   message: string;
 }
@@ -27,4 +32,8 @@ export interface RegisterError {
     avatar?: undefined | FieldError;
     displayName?: undefined | FieldError;
   }
+}
+
+export interface LoginError {
+  error: string;
 }
