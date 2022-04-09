@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -33,6 +33,7 @@ import {
   SocialLoginModule
 } from 'angularx-social-login';
 import { IsAuthDirective } from './directives/is-auth.directive';
+import { AuthInterceptor } from './auth.interceptor';
 
 const socialAuthConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -84,6 +85,7 @@ const socialAuthConfig: SocialAuthServiceConfig = {
     AppStoreModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: 'SocialAuthServiceConfig', useValue: socialAuthConfig }
   ],
   bootstrap: [AppComponent]
