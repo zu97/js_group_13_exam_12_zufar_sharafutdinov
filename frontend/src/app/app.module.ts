@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { FlexModule } from '@angular/flex-layout';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -12,13 +13,15 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { LayoutComponent } from './ui/layout/layout.component';
 import { CenteredCardComponent } from './ui/centered-card/centered-card.component';
+import { LoaderComponent } from './ui/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     LayoutComponent,
-    CenteredCardComponent
+    CenteredCardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { CenteredCardComponent } from './ui/centered-card/centered-card.componen
     MatSidenavModule,
     MatCardModule,
     FlexModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     AppStoreModule
   ],
