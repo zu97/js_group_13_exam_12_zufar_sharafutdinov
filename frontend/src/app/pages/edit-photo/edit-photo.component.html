@@ -1,0 +1,47 @@
+<app-centered-card title="Add new photo">
+  <form (ngSubmit)="onSubmit()"
+        fxLayout="column"
+        #f="ngForm"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input type="text"
+             name="title"
+             matInput
+             ngModel
+             #title="ngModel"
+             required
+      />
+      <mat-error *ngIf="title.touched && title.hasError('required')">
+        Field is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Image</mat-label>
+      <app-file-input name="image"
+                      accept="image/png, image/gif, image/jpeg"
+                      ngModel
+                      #image="ngModel"
+                      required
+      ></app-file-input>
+      <mat-error *ngIf="image.touched && image.hasError('required')">
+        Field is required
+      </mat-error>
+      <mat-error *ngIf="image.touched && image.hasError('accept')">
+        An avatar with this extension cannot be uploaded
+      </mat-error>
+      <mat-error *ngIf="image.touched && image.hasError('serverError')">
+        {{ image.getError('serverError') }}
+      </mat-error>
+    </mat-form-field>
+    <button type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="f.invalid || (addLoading | async)"
+    >
+      <app-loader [isLoading]="addLoading | async" size="sm">
+        Login
+      </app-loader>
+    </button>
+  </form>
+</app-centered-card>

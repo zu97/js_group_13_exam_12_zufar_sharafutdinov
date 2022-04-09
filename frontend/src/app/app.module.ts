@@ -36,6 +36,7 @@ import {
 import { IsAuthDirective } from './directives/is-auth.directive';
 import { AuthInterceptor } from './auth.interceptor';
 import { PhotoModalComponent } from './ui/photo-modal/photo-modal.component';
+import { EditPhotoComponent } from './pages/edit-photo/edit-photo.component';
 
 const socialAuthConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -67,7 +68,8 @@ const socialAuthConfig: SocialAuthServiceConfig = {
     RegisterComponent,
     LoginComponent,
     IsAuthDirective,
-    PhotoModalComponent
+    PhotoModalComponent,
+    EditPhotoComponent
   ],
   imports: [
     BrowserModule,
