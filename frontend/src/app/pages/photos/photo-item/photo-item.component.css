@@ -1,0 +1,22 @@
+.mat-card {
+  margin: 8px;
+  flex-grow: 3;
+}
+
+.img-block img {
+  height: 100%;
+  min-width: 100%;
+  max-height: 300px;
+  position: relative;
+  cursor: pointer;
+  transition: opacity .4s;
+}
+
+.img-block img:hover {
+  opacity: 0.8;
+}
+
+.remove-block {
+  padding-top: 10px;
+  text-align: center;
+}

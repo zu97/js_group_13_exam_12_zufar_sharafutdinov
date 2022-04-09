@@ -1,0 +1,26 @@
+<mat-card>
+  <div class="img-block">
+    <img mat-card-image
+         [src]="apiUrl + '/uploads/photos/' + photo.image"
+         [alt]="photo.title"
+         (click)="openImage()"
+    />
+  </div>
+  <mat-card-title>{{ photo.title }}</mat-card-title>
+  <mat-card-subtitle *ngIf="!isUserPage">
+    By: <a [routerLink]="'/users/' + photo.user._id">{{ photo.user.displayName }}</a>
+  </mat-card-subtitle>
+  <div class="remove-block">
+    <button type="button"
+            mat-raised-button
+            color="warn"
+            (click)="onRemove()"
+            [disabled]="isRemoveLoading"
+            *ngIf="isCanRemove"
+    >
+      <app-loader [isLoading]="isRemoveLoading">
+        Delete
+      </app-loader>
+    </button>
+  </div>
+</mat-card>

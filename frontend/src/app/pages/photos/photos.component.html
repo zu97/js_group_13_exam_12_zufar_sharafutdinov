@@ -1,0 +1,35 @@
+<app-loader [isLoading]="fetchLoading | async" size="lg">
+  <div fxLayout="row"
+       fxLayoutAlign="space-between center"
+       class="header"
+       *ngIf="viewUserId"
+  >
+    <h1>Gallery</h1>
+    <a routerLink="/users/add"
+       mat-flat-button
+       color="primary"
+       *ngIf="isOwnerPage"
+    >Add new photo</a>
+  </div>
+
+  <div class="error" *ngIf="fetchError | async">
+    {{ fetchError | async }}
+  </div>
+
+  <div fxLayout="row wrap" *ngIf="(photos | async)?.length; else emptyData">
+    <app-photo-item *ngFor="let photo of photos | async"
+                    [photo]="photo"
+                    [isCanRemove]="isOwnerPage"
+                    [isUserPage]="!!viewUserId"
+                    class="photo-item"
+    ></app-photo-item>
+  </div>
+
+  <ng-template #emptyData>
+    <mat-card fxLayout="row" fxLayoutAlign="center">
+      <mat-card-subtitle>
+        No information available
+      </mat-card-subtitle>
+    </mat-card>
+  </ng-template>
+</app-loader>
