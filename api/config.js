@@ -17,5 +17,5 @@ module.exports = {
         appId: '',
         appSecret: ''
     },
-    avatarAllowedTypes: ['.png', '.gif', '.jpg', '.jpeg'],
+    imageAllowedTypes: ['.png', '.gif', '.jpg', '.jpeg'],
 };
