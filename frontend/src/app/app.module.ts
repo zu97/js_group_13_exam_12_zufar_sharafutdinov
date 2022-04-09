@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
+import { environment as env } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { LayoutComponent } from './ui/layout/layout.component';
@@ -30,7 +32,7 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from 'angularx-social-login';
-import { environment as env } from '../environments/environment';
+import { IsAuthDirective } from './directives/is-auth.directive';
 
 const socialAuthConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -60,7 +62,8 @@ const socialAuthConfig: SocialAuthServiceConfig = {
     FileInputComponent,
     ValidateIdenticalDirective,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    IsAuthDirective
   ],
   imports: [
     BrowserModule,
