@@ -1,0 +1,16 @@
+node_modules
+public/uploads/avatars/*
+public/uploads/photos/*
+!public/uploads/avatars/.gitkeep
+!public/uploads/avatars/anna.jpg
+!public/uploads/avatars/john.jpg
+!public/uploads/photos/.gitkeep
+!public/uploads/photos/dog.jpg
+!public/uploads/photos/camera.jpg
+!public/uploads/photos/sunset.jpg
+!public/uploads/photos/moto.jpg
+!public/uploads/photos/landscape.jpg
+!public/uploads/photos/sea.jpg
+!public/uploads/photos/sea-2.jpg
+!public/uploads/photos/landscape-2.jpg
+!public/uploads/photos/mountains.jpg
