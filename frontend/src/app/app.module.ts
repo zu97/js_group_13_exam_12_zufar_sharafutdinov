@@ -9,6 +9,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -19,6 +21,7 @@ import { CenteredCardComponent } from './ui/centered-card/centered-card.componen
 import { LoaderComponent } from './ui/loader/loader.component';
 import { FileInputComponent } from './ui/file-input/file-input.component';
 import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { ValidateIdenticalDirective } from './directives/validate-identical.dire
     CenteredCardComponent,
     LoaderComponent,
     FileInputComponent,
-    ValidateIdenticalDirective
+    ValidateIdenticalDirective,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { ValidateIdenticalDirective } from './directives/validate-identical.dire
     FormsModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
     AppRoutingModule,
     AppStoreModule
   ],
