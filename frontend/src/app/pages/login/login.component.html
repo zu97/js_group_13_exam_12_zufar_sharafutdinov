@@ -1,6 +1,6 @@
 <app-centered-card title="Login">
-  <div *ngIf="error | async" class="error">
-    {{ (error | async)?.error }}
+  <div *ngIf="loginError | async" class="error">
+    {{ (loginError | async)?.error }}
   </div>
 
   <form (ngSubmit)="onSubmit()"
@@ -40,14 +40,38 @@
         Field is required
       </mat-error>
     </mat-form-field>
-    <button type="submit"
-            mat-raised-button
-            color="primary"
-            [disabled]="f.invalid || (isLoading | async)"
-    >
-      <app-loader [isLoading]="isLoading | async" size="sm">
-        Login
-      </app-loader>
-    </button>
+    <div fxLayout="column" fxLayoutGap="16px">
+      <button type="submit"
+              mat-raised-button
+              color="primary"
+              [disabled]="f.invalid || (loginLoading | async)"
+      >
+        <app-loader [isLoading]="loginLoading | async" size="sm">
+          Login
+        </app-loader>
+      </button>
+      <button type="button"
+              mat-raised-button
+              (click)="fbLogin()"
+              [disabled]="(facebookLoading | async)"
+      >
+        <app-loader [isLoading]="facebookLoading | async" size="sm">
+          <img src="assets/icons/icons8-facebook.svg" alt="facebook">
+          &nbsp;&nbsp;
+          LOGIN WITH FACEBOOK
+        </app-loader>
+      </button>
+      <button type="button"
+              mat-raised-button
+              (click)="googleLogin()"
+              [disabled]="(googleLoading | async)"
+      >
+        <app-loader [isLoading]="googleLoading | async" size="sm">
+          <img src="assets/icons/icons8-google.svg" alt="google">
+          &nbsp;&nbsp;
+          LOGIN WITH GOOGLE
+        </app-loader>
+      </button>
+    </div>
   </form>
 </app-centered-card>

@@ -24,6 +24,31 @@ import { FileInputComponent } from './ui/file-input/file-input.component';
 import { ValidateIdenticalDirective } from './directives/validate-identical.directive';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthServiceConfig,
+  SocialLoginModule
+} from 'angularx-social-login';
+import { environment as env } from '../environments/environment';
+
+const socialAuthConfig: SocialAuthServiceConfig = {
+  autoLogin: false,
+  providers: [
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider(env.facebookAppId, {
+        scope: 'email,public_profile'
+      })
+    },
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider(env.googleAppId, {
+        scope: 'email profile'
+      })
+    }
+  ]
+};
 
 @NgModule({
   declarations: [
@@ -51,10 +76,13 @@ import { LoginComponent } from './pages/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    SocialLoginModule,
     AppRoutingModule,
     AppStoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'SocialAuthServiceConfig', useValue: socialAuthConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

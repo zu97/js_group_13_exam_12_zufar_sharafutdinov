@@ -1,5 +1,12 @@
 import { createAction, props } from '@ngrx/store';
-import { LoginError, LoginUserData, RegisterError, RegisterUserData, User } from '../models/user.model';
+import {
+  LoginError,
+  LoginSocialUserData,
+  LoginUserData,
+  RegisterError,
+  RegisterUserData,
+  User
+} from '../models/user.model';
 
 export const registerUserRequest = createAction(
   '[Users] Register Request',
@@ -24,6 +31,32 @@ export const loginUserSuccess = createAction(
 );
 export const loginUserFailure = createAction(
   '[Users] Login Failure',
+  props<{error: null | LoginError}>()
+);
+
+export const facebookLoginUserRequest = createAction(
+  '[Users] Fb Login Request',
+  props<{userData: LoginSocialUserData}>()
+);
+export const facebookLoginUserSuccess = createAction(
+  '[Users] Fb Login Success',
+  props<{user: User}>()
+);
+export const facebookLoginUserFailure = createAction(
+  '[Users] Fb Login Failure',
+  props<{error: null | LoginError}>()
+);
+
+export const googleLoginUserRequest = createAction(
+  '[Users] Google Request',
+  props<{userData: LoginSocialUserData}>()
+);
+export const googleLoginUserSuccess = createAction(
+  '[Users] Google Success',
+  props<{user: User}>()
+);
+export const googleLoginUserFailure = createAction(
+  '[Users] Google Failure',
   props<{error: null | LoginError}>()
 );
 

@@ -5,6 +5,8 @@ export type UsersState = {
   registerLoading: boolean,
   registerError: null | RegisterError,
   loginLoading: boolean,
+  fbLoginLoading: boolean,
+  googleLoginLoading: boolean,
   loginError: null | LoginError
 };
 

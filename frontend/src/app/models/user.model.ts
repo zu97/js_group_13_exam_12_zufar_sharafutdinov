@@ -21,6 +21,14 @@ export interface LoginUserData {
   password: string;
 }
 
+export interface LoginSocialUserData {
+  authToken: string;
+  id: string;
+  email: string;
+  name: string;
+  photoUrl: string;
+}
+
 export interface FieldError {
   message: string;
 }
