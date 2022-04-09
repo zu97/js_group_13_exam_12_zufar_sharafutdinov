@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AppStoreModule } from './app-store.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -21,6 +22,7 @@ import { LayoutComponent } from './ui/layout/layout.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
+    AppStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
