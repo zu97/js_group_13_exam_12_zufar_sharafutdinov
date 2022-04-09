@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const { nanoid } = require('nanoid');
-const path = require("path");
-const fs = require("fs");
-const config = require('../config');
+const path = require('path');
+const fs = require('fs');
 
+const config = require('../config');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -36,7 +36,7 @@ const UserSchema = new Schema({
         }
 
         const extName = path.extname(value);
-        if (config.avatarAllowedTypes.length === 0 || config.avatarAllowedTypes.includes(extName)) {
+        if (config.imageAllowedTypes.length === 0 || config.imageAllowedTypes.includes(extName)) {
           return true;
         }
 
@@ -47,7 +47,7 @@ const UserSchema = new Schema({
 
         return false;
       },
-      message: 'An avatar with this extension cannot be uploaded'
+      message: 'Image with this extension cannot be uploaded'
     }
   },
   displayName: {
