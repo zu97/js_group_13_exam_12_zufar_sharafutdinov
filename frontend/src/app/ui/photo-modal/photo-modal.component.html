@@ -1,0 +1,9 @@
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="center center">
+  <img [src]="data.link" [alt]="data.title" />
+  <button type="button"
+          mat-raised-button
+          color="warn"
+          class="close-modal"
+          (click)="onNoClick()"
+  >Close</button>
+</div>

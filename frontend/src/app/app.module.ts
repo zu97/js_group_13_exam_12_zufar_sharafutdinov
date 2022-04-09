@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppStoreModule } from './app-store.module';
 
@@ -34,6 +35,7 @@ import {
 } from 'angularx-social-login';
 import { IsAuthDirective } from './directives/is-auth.directive';
 import { AuthInterceptor } from './auth.interceptor';
+import { PhotoModalComponent } from './ui/photo-modal/photo-modal.component';
 
 const socialAuthConfig: SocialAuthServiceConfig = {
   autoLogin: false,
@@ -64,7 +66,8 @@ const socialAuthConfig: SocialAuthServiceConfig = {
     ValidateIdenticalDirective,
     RegisterComponent,
     LoginComponent,
-    IsAuthDirective
+    IsAuthDirective,
+    PhotoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ const socialAuthConfig: SocialAuthServiceConfig = {
     HttpClientModule,
     SocialLoginModule,
     AppRoutingModule,
-    AppStoreModule
+    AppStoreModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
